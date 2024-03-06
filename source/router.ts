@@ -140,6 +140,12 @@ export class Router {
 					} else {
 						return;
 					}
+				} else if(!tree.has(ROUTE)) {
+					const allTree: Tree | undefined = tree.get(ALL);
+
+					if(typeof(allTree) !== 'undefined' && allTree.has(ROUTE)) {
+						tree = allTree;
+					}
 				}
 	
 				const route: Route | undefined = tree.get(ROUTE);
