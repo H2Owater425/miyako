@@ -18,7 +18,6 @@ Simple api framework
 - Custom json schema
 
 ## Logger
-- Nginx-style
 - Level
 	- fatal
 	- error
@@ -47,9 +46,10 @@ Simple api framework
 - Static path caching
 
 ## Server
-- Jsend formatting
 - Http methods
 	- POST
 	- GET
 	- PATCH
 	- DELETE
+- Jsend formatting
+- Nginx-style logging
