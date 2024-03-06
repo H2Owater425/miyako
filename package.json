@@ -8,6 +8,29 @@
 		"build": "rollup --config rollup.config.js",
 		"test": "ts-node-dev --rs --files test.ts"
 	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/h2owater425/miyako.git"
+	},
+	"keywords": [
+		"web",
+		"api",
+		"framework",
+		"jsend",
+		"schema",
+		"validator",
+		"validation",
+		"logger",
+		"router",
+		"radix"
+	],
+	"author": "H2Owater425 <h2o@h2owr.xyz>",
+	"license": "MIT",
+	"bugs": {
+		"url": "https://github.com/h2owater425/miyako/issues",
+		"email": "h2o@h2owr.xyz"
+	},
+	"homepage": "https://github.com/H2Owater425/miyako#readme",
 	"devDependencies": {
 		"@rollup/plugin-terser": "^0.4.4",
 		"@rollup/plugin-typescript": "^11.1.6",
