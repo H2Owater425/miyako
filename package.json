@@ -1,6 +1,6 @@
 {
 	"name": "miyako",
-	"version": "0.0.2",
+	"version": "0.0.3",
 	"description": "Simple api framework",
 	"main": "./library/index.js",
 	"types": "./library/types/index.d.ts",
