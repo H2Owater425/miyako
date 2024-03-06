@@ -1,0 +1,15 @@
+{
+	"compilerOptions": {
+		"target": "ESNext",
+		"module": "CommonJS",
+		"outDir": "library",
+		"removeComments": true,
+		"strict": true,
+		"esModuleInterop": true,
+		"forceConsistentCasingInFileNames": true,
+		"declarationDir": "types",
+		"declaration": true
+	},
+	"exclude": ["node_modules"],
+	"include": ["source/**/*.ts"]
+}
