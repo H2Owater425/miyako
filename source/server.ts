@@ -34,6 +34,7 @@ export class Server extends _Server<Request & typeof IncomingMessage, Response &
 			} catch(error: unknown) {
 				reject(error);
 			}
+
 			return;
 		});
 	}]]);
@@ -120,7 +121,7 @@ export class Server extends _Server<Request & typeof IncomingMessage, Response &
 		return;
 	}
 
-	static #requestHandler(handlers: Route['handlers'], request: Request, response: Response): Promise<unknown> {
+	static #handleRequest(handlers: Route['handlers'], request: Request, response: Response): Promise<unknown> {
 		return handlers.slice(1)
 		.reduce(function (promise: Promise<unknown>, handler: Route['handlers'][number]): Promise<unknown> {
 			return promise.then(function (): Promise<unknown> {
@@ -166,7 +167,7 @@ export class Server extends _Server<Request & typeof IncomingMessage, Response &
 					if(typeof(routerResult) !== 'undefined') {
 						Object.assign(request, {
 							query: url['query'],
-							parameter: routerResult[1]
+							parameters: routerResult[1]
 						});
 
 						for(const key in routerResult[0]['schema']) {
@@ -210,7 +211,7 @@ export class Server extends _Server<Request & typeof IncomingMessage, Response &
 												}
 											}
 
-											return Server.#requestHandler(routerResult[0]['handlers'], request, response);
+											return Server.#handleRequest(routerResult[0]['handlers'], request, response);
 										})
 										.catch(response.send.bind(response));
 									} else {
@@ -233,7 +234,7 @@ export class Server extends _Server<Request & typeof IncomingMessage, Response &
 								}
 							}
 
-							Server.#requestHandler(routerResult[0]['handlers'], request, response);
+							Server.#handleRequest(routerResult[0]['handlers'], request, response);
 						}
 					} else {
 						throw new NotFound('Path must be exist');
