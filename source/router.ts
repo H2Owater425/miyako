@@ -26,6 +26,7 @@ export class Router {
 						if(typeof(targetTree) !== 'object') {
 							if(treePath[0] === ':') {
 								targetTree = tree.get(PARAMETER);
+								treePath = treePath.slice(1);
 	
 								if(typeof(targetTree) !== 'object') {
 									targetTree = new Map([[NAME, treePath]]) as Tree;
@@ -136,6 +137,10 @@ export class Router {
 									parameter[targetTree.get(NAME) as string] = treePath;
 								}
 							}
+
+							tree = targetTree;
+							currentIndex = nextIndex + 1;
+							nextIndex = path.indexOf('/', currentIndex);
 						}
 					} else {
 						return;
